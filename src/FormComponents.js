@@ -76,6 +76,7 @@ type SelectProps = {
   onChange: string => void,
   otherProps?: Object,
   value: string,
+  containerClassName?: string,
 }
 
 export function Select({
@@ -87,12 +88,13 @@ export function Select({
   label,
   onChange,
   value,
+  containerClassName,
   ...otherProps
 }: SelectProps) {
   return (
     <div>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
-      <div className="mod">
+      <div className={containerClassName || 'mod'}>
         <div className="select">
           <select
             className={hasError ? 'error' : null}
