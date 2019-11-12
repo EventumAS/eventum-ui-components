@@ -8,7 +8,7 @@ import { Header, HeaderButtonMenu, HeaderLink, ModalMenuLink } from '../src/Head
 import { LocaleSelectorWithState } from '../src/LocaleSelector';
 import { MainContent } from '../src/MainContent';
 import { SPACING } from '../src/constants';
-import { Select, TextInput } from '../src/FormComponents';
+import { Select, TextInput, Label } from '../src/FormComponents';
 
 const XL = 60;
 
@@ -28,6 +28,18 @@ function FormsDemo() {
           <Col>
             <TextInput onChange={(v) => {console.log("Printed: ", v)}}
                        label="Just input..." />
+          </Col>
+        </Grid>
+        <Grid>
+          <Col>
+            <Label label="Simple label" description="With some desc" />
+          </Col>
+          <Col>
+            <Label label="With otherProps"
+                   style={{color: "green"}}
+                   wrapperProps={{style: {color: "blue"}}}
+                   className="mrgl"
+                   description="And with wrapperProps"/>
           </Col>
         </Grid>
       </div>

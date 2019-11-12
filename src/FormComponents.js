@@ -33,9 +33,14 @@ export function Label({ description, htmlFor, label, wrapperProps, ...otherProps
   );
 }
 
-export function ErrorMessage({ children }: { children: React.Node }) {
+type ErrorMessageProps = {
+  children: React.Node,
+  otherProps?: Object,
+}
+
+export function ErrorMessage({ children, ...otherProps }: ErrorMessageProps) {
   return (
-    <div className="mts">
+    <div className="mts" {...otherProps}>
       {children}
       { /* language=CSS */ }
       <style jsx>{`
