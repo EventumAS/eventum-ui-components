@@ -99,12 +99,25 @@ function ButtonsDemo() {
             >Link</Button>
           </Col>
         </Grid>
-        <Button
-          btnStyle="primary"
-          btnSize="m"
-          className="mrgl"
-          style={{margin: S}}
-          onClick={() => { console.log("Click!") }}>With otherProps</Button>
+        <Grid>
+          <Col>
+            <Button
+               btnStyle="primary"
+               btnSize="m"
+               className="mrgl"
+               style={{margin: S}}
+               onClick={() => { console.log("Click!") }}>With otherProps</Button>
+          </Col>
+          <Col>
+            <Button
+               disabled
+               btnStyle="primary"
+               btnSize="l"
+               className="mrgl"
+               onClick={() => { console.log("Click!") }}
+            >Disabled with custom class</Button>
+          </Col>
+        </Grid>
       </div>
     </div>
   );
