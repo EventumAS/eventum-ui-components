@@ -6,13 +6,16 @@ type LabelProps = {
   htmlFor: string,
   description?: string,
   label?: string,
+  wrapperProps?: Object,
+  otherProps?: Object,
 }
 
-export function Label({ description, htmlFor, label }: LabelProps) {
+export function Label({ description, htmlFor, label, wrapperProps, ...otherProps }: LabelProps) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div className="mod">
+    <div className="mod" {...WrapperProps}>
       {label ? (
-        <label htmlFor={htmlFor}>
+        <label htmlFor={htmlFor} {...otherProps}>
           {label}
         </label>
       ) : null}
@@ -30,7 +33,7 @@ export function Label({ description, htmlFor, label }: LabelProps) {
   );
 }
 
-function ErrorMessage({ children }: { children: React.Node }) {
+export function ErrorMessage({ children }: { children: React.Node }) {
   return (
     <div className="mts">
       {children}
@@ -75,6 +78,7 @@ type SelectProps = {
   label?: string,
   onChange: string => void,
   otherProps?: Object,
+  wrapperProps?: Object,
   value: string,
 }
 
@@ -87,10 +91,12 @@ export function Select({
   label,
   onChange,
   value,
+  wrapperProps,
   ...otherProps
 }: SelectProps) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <div className="mod">
         <div className="select">
@@ -197,6 +203,7 @@ type TextInputProps = {
   label?: string,
   onChange: string => void,
   otherProps?: Object,
+  wrapperProps?: Object,
   value: string,
 }
 
@@ -208,10 +215,12 @@ export function TextInput({
   label,
   onChange,
   value,
+  wrapperProps,
   ...otherProps
 }: TextInputProps) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         errorMessage={errorMessage}
@@ -227,17 +236,19 @@ export function TextInput({
 }
 
 export function EmailInput({
-description,
-errorMessage,
-hasError,
-id,
-label,
-onChange,
-value,
-...otherProps
+  description,
+  errorMessage,
+  hasError,
+  id,
+  label,
+  onChange,
+  value,
+  wrapperProps,
+  ...otherProps
 }: TextInputProps) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         errorMessage={errorMessage}
@@ -253,17 +264,19 @@ value,
 }
 
 export function TelInput({
-description,
-errorMessage,
-hasError,
-id,
-label,
-onChange,
-value,
-...otherProps
+  description,
+  errorMessage,
+  hasError,
+  id,
+  label,
+  onChange,
+  value,
+  wrapperProps,
+  ...otherProps
 }: TextInputProps) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         errorMessage={errorMessage}
@@ -288,10 +301,12 @@ export function NumberInput({
   min,
   onChange,
   value,
+  wrapperProps,
   ...otherProps
 }: { ...TextInputProps, min?: number, max?: number }) {
+  const WrapperProps = wrapperProps || {};
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         errorMessage={errorMessage}
@@ -318,12 +333,14 @@ export function Textarea({
   rows,
   value,
   inputComponent,
+  wrapperProps,
   ...otherProps
 }: { ...TextInputProps, rows?: number, inputComponent?: string }) {
   let InputComponent = inputComponent;
+  const WrapperProps = wrapperProps || {};
 
   return (
-    <div>
+    <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <div className="mod">
         <InputComponent
