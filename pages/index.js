@@ -30,6 +30,8 @@ function FormsDemo() {
                        label="Just input..." />
           </Col>
         </Grid>
+        <TextInput onChange={(v) => {console.log("Printed: ", v)}}
+                   errorMessage="Some Error" hasError />
         <Grid>
           <Col>
             <Label label="Simple label" description="With some desc" />
@@ -220,6 +222,7 @@ class DatePickerDemo extends React.Component {
           <DatePickerWithData
             onClose={this.toggleShowDatePicker}
             onDateClick={date => {
+              console.log("Selected Date: ", date);
               this.setState({ selectedDate: date, showDatePicker: false });
             }}
           />

@@ -214,12 +214,8 @@ type TextInputProps = {
 
 export function TextInput({
   description,
-  errorMessage,
-  hasError,
   id,
   label,
-  onChange,
-  value,
   wrapperProps,
   ...otherProps
 }: TextInputProps) {
@@ -228,12 +224,8 @@ export function TextInput({
     <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
-        errorMessage={errorMessage}
-        hasError={hasError}
         id={id}
-        onChange={onChange}
         type="text"
-        value={value}
         {...otherProps}
       />
     </div>
@@ -242,12 +234,8 @@ export function TextInput({
 
 export function EmailInput({
   description,
-  errorMessage,
-  hasError,
   id,
   label,
-  onChange,
-  value,
   wrapperProps,
   ...otherProps
 }: TextInputProps) {
@@ -256,12 +244,8 @@ export function EmailInput({
     <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
-        errorMessage={errorMessage}
-        hasError={hasError}
         id={id}
-        onChange={onChange}
         type="email"
-        value={value}
         {...otherProps}
       />
     </div>
@@ -270,12 +254,8 @@ export function EmailInput({
 
 export function TelInput({
   description,
-  errorMessage,
-  hasError,
   id,
   label,
-  onChange,
-  value,
   wrapperProps,
   ...otherProps
 }: TextInputProps) {
@@ -284,12 +264,8 @@ export function TelInput({
     <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
-        errorMessage={errorMessage}
-        hasError={hasError}
         id={id}
-        onChange={onChange}
         type="tel"
-        value={value}
         {...otherProps}
       />
     </div>
@@ -298,14 +274,10 @@ export function TelInput({
 
 export function NumberInput({
   description,
-  errorMessage,
-  hasError,
   id,
   label,
   max,
   min,
-  onChange,
-  value,
   wrapperProps,
   ...otherProps
 }: { ...TextInputProps, min?: number, max?: number }) {
@@ -314,14 +286,10 @@ export function NumberInput({
     <div {...WrapperProps}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
-        errorMessage={errorMessage}
-        hasError={hasError}
         id={id}
         max={max}
         min={min}
-        onChange={onChange}
         type="number"
-        value={value}
         {...otherProps}
       />
     </div>
