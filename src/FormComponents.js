@@ -6,14 +6,14 @@ type LabelProps = {
   htmlFor: string,
   description?: string,
   label?: string,
-  wrapperProps?: Object,
+  wrapperClass?: string,
+  wrapperStyle?: Object,
   otherProps?: Object,
 }
 
-export function Label({ description, htmlFor, label, wrapperProps, ...otherProps }: LabelProps) {
-  const WrapperProps = wrapperProps || {};
+export function Label({ description, htmlFor, label, wrapperClass, wrapperStyle, ...otherProps }: LabelProps) {
   return (
-    <div className="mod" {...WrapperProps}>
+    <div className={wrapperClass || "mod"} style={wrapperStyle}>
       {label ? (
         <label htmlFor={htmlFor} {...otherProps}>
           {label}
@@ -83,7 +83,8 @@ type SelectProps = {
   label?: string,
   onChange: string => void,
   otherProps?: Object,
-  wrapperProps?: Object,
+  wrapperStyle?: Object,
+  wrapperClass?: string,
   value: string,
 }
 
@@ -96,12 +97,12 @@ export function Select({
   label,
   onChange,
   value,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: SelectProps) {
-  const WrapperProps = wrapperProps || {};
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <div className="mod">
         <div className="select">
@@ -208,7 +209,8 @@ type TextInputProps = {
   label?: string,
   onChange: string => void,
   otherProps?: Object,
-  wrapperProps?: Object,
+  wrapperStyle?: Object,
+  wrapperClass?: string,
   value: string,
 }
 
@@ -216,12 +218,12 @@ export function TextInput({
   description,
   id,
   label,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: TextInputProps) {
-  const WrapperProps = wrapperProps || {};
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         id={id}
@@ -236,12 +238,12 @@ export function EmailInput({
   description,
   id,
   label,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: TextInputProps) {
-  const WrapperProps = wrapperProps || {};
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         id={id}
@@ -256,12 +258,12 @@ export function TelInput({
   description,
   id,
   label,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: TextInputProps) {
-  const WrapperProps = wrapperProps || {};
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         id={id}
@@ -278,12 +280,12 @@ export function NumberInput({
   label,
   max,
   min,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: { ...TextInputProps, min?: number, max?: number }) {
-  const WrapperProps = wrapperProps || {};
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <FormInput
         id={id}
@@ -306,14 +308,14 @@ export function Textarea({
   rows,
   value,
   inputComponent,
-  wrapperProps,
+  wrapperStyle,
+  wrapperClass,
   ...otherProps
 }: { ...TextInputProps, rows?: number, inputComponent?: string }) {
   let InputComponent = inputComponent;
-  const WrapperProps = wrapperProps || {};
 
   return (
-    <div {...WrapperProps}>
+    <div style={wrapperStyle} className={wrapperClass}>
       {label || description ? <Label htmlFor={id} description={description} label={label} /> : null}
       <div className="mod">
         <InputComponent

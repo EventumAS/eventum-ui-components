@@ -89,7 +89,6 @@ type GridProps = {
   children?: React.Node,
   type?: 'xs' | 's' | 'm' | 'l',
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse',
-  // style?: Object,
   className?: string,
   otherProps?: Object,
 }

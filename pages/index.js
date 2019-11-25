@@ -20,7 +20,7 @@ function FormsDemo() {
           <Col>
             <Select onChange={(v) => {console.log("Selected: ", v)}}
                     label="3/4 width of wrapper element"
-                    wrapperProps={{style: {width: "75%"}}}>
+                    wrapperStyle={{width: "75%"}}>
               <option value="1">One</option>
               <option value="2">Two</option>
             </Select>
@@ -39,9 +39,9 @@ function FormsDemo() {
           <Col>
             <Label label="With otherProps"
                    style={{color: "green"}}
-                   wrapperProps={{style: {color: "blue"}}}
+                   wrapperStyle={{color: "blue"}}
                    className="mrgl"
-                   description="And with wrapperProps"/>
+                   description="And with wrapperStyle"/>
           </Col>
         </Grid>
       </div>
@@ -216,7 +216,7 @@ class DatePickerDemo extends React.Component {
         <h1>DatePicker</h1>
         <DateSelectButton date={selectedDate}
                           locale='en'
-                          wrapperProps={{style: { width: 200, margin: SPACING.M }}}
+                          wrapperStyle={{ width: 200, margin: SPACING.M }}
                           onClick={this.toggleShowDatePicker}/>
         {showDatePicker ? (
           <DatePickerWithData
