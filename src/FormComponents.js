@@ -13,7 +13,7 @@ type LabelProps = {
 
 export function Label({ description, htmlFor, label, wrapperClass, wrapperStyle, ...otherProps }: LabelProps) {
   return (
-    <div className={wrapperClass || "mod"} style={wrapperStyle}>
+    <div className={'mod ' + (wrapperClass ? wrapperClass : '')} style={wrapperStyle}>
       {label ? (
         <label htmlFor={htmlFor} {...otherProps}>
           {label}

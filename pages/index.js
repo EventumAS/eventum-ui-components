@@ -30,6 +30,7 @@ function FormsDemo() {
                        label="Just input..." />
           </Col>
         </Grid>
+        <Label label="Label with custom wrapper props" wrapperClass="mrgl" wrapperStyle={{width: "20%"}}/>
         <TextInput onChange={(v) => {console.log("Printed: ", v)}}
                    errorMessage="Some Error" hasError />
         <Grid>
@@ -246,7 +247,7 @@ export default () => (
     { /* language=CSS */ }
     <style jsx global>
       {`
-        .mrgl {background-color: purple !important}
+        .mrgl {background-color: #e0b4b4 !important}
         @font-face {
           font-display: swap;
           font-family: 'Brandon Grotesque';
