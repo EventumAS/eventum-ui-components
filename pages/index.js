@@ -213,21 +213,31 @@ class DatePickerDemo extends React.Component {
     const { selectedDate, showDatePicker } = this.state;
 
     return (
-      <div style={{ marginTop: XL }}>
-        <h1>DatePicker</h1>
-        <DateSelectButton date={selectedDate}
-                          locale='en'
-                          wrapperStyle={{ width: 200, margin: SPACING.M }}
-                          onClick={this.toggleShowDatePicker}/>
-        {showDatePicker ? (
-          <DatePickerWithData
-            onClose={this.toggleShowDatePicker}
-            onDateClick={date => {
-              console.log("Selected Date: ", date);
-              this.setState({ selectedDate: date, showDatePicker: false });
-            }}
-          />
-          ) : null}
+      <div style={{ marginTop: XL, display: "flex" }}>
+        <div>
+          <h1>DatePicker</h1>
+          <DateSelectButton date={selectedDate}
+                            locale='en'
+                            wrapperStyle={{ width: 200, margin: SPACING.M }}
+                            onClick={this.toggleShowDatePicker}/>
+          {showDatePicker ? (
+            <DatePickerWithData
+              onClose={this.toggleShowDatePicker}
+              onDateClick={date => {
+                console.log("Selected Date: ", date);
+                this.setState({ selectedDate: date, showDatePicker: false });
+              }}
+            />
+            ) : null}
+        </div>
+        <div>
+          <h1>Just DateSelect button</h1>
+          <DateSelectButton date={selectedDate}
+                            locale='en'
+                            placeholder="With placeholder"
+                            wrapperStyle={{ width: 200, margin: SPACING.M }}
+                            onClick={this.toggleShowDatePicker}/>
+        </div>
       </div>
   )
   }
