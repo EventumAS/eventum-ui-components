@@ -8,14 +8,15 @@ type LabelProps = {
   label?: string,
   wrapperClass?: string,
   wrapperStyle?: Object,
-  otherProps?: Object,
+  style?: Object,
+  className?: string,
 }
 
-export function Label({ description, htmlFor, label, wrapperClass, wrapperStyle, ...otherProps }: LabelProps) {
+export function Label({ description, htmlFor, label, wrapperClass, wrapperStyle, style, className }: LabelProps) {
   return (
-    <div className={'mod ' + (wrapperClass ? wrapperClass : '')} style={wrapperStyle}>
+    <div className={'mod ' + (wrapperClass || '')} style={wrapperStyle}>
       {label ? (
-        <label htmlFor={htmlFor} {...otherProps}>
+        <label htmlFor={htmlFor} style={style} className={className}>
           {label}
         </label>
       ) : null}
@@ -35,12 +36,13 @@ export function Label({ description, htmlFor, label, wrapperClass, wrapperStyle,
 
 type ErrorMessageProps = {
   children: React.Node,
-  otherProps?: Object,
+  style?: Object,
+  className?: string,
 }
 
-export function ErrorMessage({ children, ...otherProps }: ErrorMessageProps) {
+export function ErrorMessage({ children, style, className }: ErrorMessageProps) {
   return (
-    <div className="mts" {...otherProps}>
+    <div className={"mts " + (className || '')} style={style}>
       {children}
       { /* language=CSS */ }
       <style jsx>{`

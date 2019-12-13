@@ -158,8 +158,9 @@ type ButtonProps = {
   children: React.Node,
   disabled?: boolean,
   onClick: (event: SyntheticEvent<HTMLButtonElement>) => void,
-  otherProps?: Object,
   className?: string,
+  style?: Object,
+  otherProps?: Object,
 }
 
 export function Button({
@@ -174,12 +175,11 @@ export function Button({
 }: ButtonProps) {
   const sizeCss = sizeStyle(btnSize);
   const styleCss = styleStyle(btnStyle);
-  const classes = (disabled ? "disabled " : "") + (className || "")
 
   return (
     <button
       disabled={disabled}
-      className={classes}
+      className={(disabled ? "disabled " : "") + (className || "")}
       onClick={event => onClick(event)}
       type="button"
       {...otherProps}

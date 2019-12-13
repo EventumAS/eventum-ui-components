@@ -236,7 +236,7 @@ class DatePickerDemo extends React.Component {
                             locale='en'
                             placeholder="With placeholder"
                             wrapperStyle={{ width: 200, margin: SPACING.M }}
-                            onClick={this.toggleShowDatePicker}/>
+                            onClick={() => { console.log("DateSelect button clicked") }}/>
         </div>
       </div>
   )
