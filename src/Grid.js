@@ -4,12 +4,13 @@ import * as React from 'react';
 type ColProps = {
   children?: React.Node,
   flex?: number | string,
-  otherProps?: Object,
+  style?: Object,
+  className?: string,
 }
 
-export function Col({ children, flex, ...otherProps }: ColProps) {
+export function Col({ children, flex, style, className }: ColProps) {
   return (
-    <div {...otherProps}>
+    <div style={style} className={className}>
       {children}
       { /* language=CSS */ }
       <style jsx>
