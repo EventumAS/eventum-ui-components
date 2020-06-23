@@ -257,7 +257,7 @@ class DatePickerDemo extends React.Component {
           {showDatePicker ? (
             <DatePickerWithData
               onClose={this.toggleShowDatePicker}
-              isDateAvailable={date => { return date < today }}
+              isDateAvailable={date => { var day = (new Date(date)).getDay(); return day != 0 && day != 6 }}
               onDateClick={date => {
                 console.log("Selected Date: ", date);
                 this.setState({ selectedDate: date, showDatePicker: false });
