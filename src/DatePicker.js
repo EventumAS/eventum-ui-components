@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
 import * as React from 'react';
 import times from 'lodash/times';
+import assign from 'lodash/assign';
 
 import { Backdrop } from './Backdrop';
 import { Grid } from './Grid';
@@ -135,7 +136,7 @@ function Week({ days, minDate, onDateClick, selectedDate, isDateAvailable }: Wee
 
         return (
           <Day
-            day={Object.assign({}, day, { status })}
+            day={assign({}, day, { status })}
             key={day.date}
             onDateClick={onDateClick}
             selectedDate={selectedDate}
