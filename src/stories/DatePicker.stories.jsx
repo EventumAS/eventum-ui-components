@@ -4,47 +4,57 @@ import dateformat from 'dateformat';
 import { DateSelectButton } from '../DateSelectButton';
 import { SPACING } from '../constants';
 import { DatePickerWithData } from '../DatePickerWithData';
+import useState from 'storybook-addon-state';
 
 export default {
   title: 'DatePicker',
   component: DatePickerWithData,
 };
 
+const Template = (args) => {
+  var selectedDate = '';
+  const [showDatePicker, set] = useState('date-picker', false);
 
-var selectedDate = '';
-var showDatePicker = false
+  const XL = 60;
+  const toggleShowDatePicker = () => {
+    const newVal = !showDatePicker
+    set(newVal)
+  };
 
-const XL = 60;
-const toggleShowDatePicker = () => {
-  showDatePicker = !showDatePicker
-};
+  const today = dateformat(new Date, 'yyyy-mm-dd')
 
-const today = dateformat(new Date, 'yyyy-mm-dd')
-
-
-const Template = (args) => (
-  <div style={{ marginTop: XL, display: "flex", flexWrap: "wrap" }}>
+  return (<div style={{
+    marginTop: XL,
+    display: "flex",
+    flexWrap: "wrap"
+  }}>
     <div>
       <h2>DatePicker</h2>
       <DateSelectButton date={selectedDate}
                         locale='en'
-                        wrapperStyle={{ width: 200, margin: SPACING.M }}
+                        wrapperStyle={{
+                          width: 200,
+                          margin: SPACING.M
+                        }}
                         onClick={toggleShowDatePicker}/>
+      <div>{`The state is ${showDatePicker}`}</div>
       {showDatePicker ? (
         <DatePickerWithData
           onClose={toggleShowDatePicker}
           onDateClick={date => {
             selectedDate = date;
-            showDatePicker = false;
           }}
         />
       ) : null}
     </div>
-    <div style={{flex: 1}}>
+    <div style={{ flex: 1 }}>
       <h2>Limited by min</h2>
       <DateSelectButton date={selectedDate}
                         locale='en'
-                        wrapperStyle={{ width: 200, margin: SPACING.M }}
+                        wrapperStyle={{
+                          width: 200,
+                          margin: SPACING.M
+                        }}
                         onClick={toggleShowDatePicker}/>
       {showDatePicker ? (
         <DatePickerWithData
@@ -52,7 +62,6 @@ const Template = (args) => (
           minDate={today}
           onDateClick={date => {
             selectedDate = date;
-            showDatePicker = false;
           }}
         />
       ) : null}
@@ -61,15 +70,20 @@ const Template = (args) => (
       <h2>Limited by `isDateAvailable`</h2>
       <DateSelectButton date={selectedDate}
                         locale='en'
-                        wrapperStyle={{ width: 200, margin: SPACING.M }}
+                        wrapperStyle={{
+                          width: 200,
+                          margin: SPACING.M
+                        }}
                         onClick={toggleShowDatePicker}/>
       {showDatePicker ? (
         <DatePickerWithData
           onClose={toggleShowDatePicker}
-          isDateAvailable={date => { var day = (new Date(date)).getDay(); return day !== 0 && day !== 6;}}
+          isDateAvailable={date => {
+            var day = (new Date(date)).getDay();
+            return day !== 0 && day !== 6;
+          }}
           onDateClick={date => {
             selectedDate = date;
-            showDatePicker = false;
           }}
         />
       ) : null}
@@ -79,11 +93,16 @@ const Template = (args) => (
       <DateSelectButton date={selectedDate}
                         locale='en'
                         placeholder="With placeholder"
-                        wrapperStyle={{ width: 200, margin: SPACING.M }}
-                        onClick={() => { console.log("DateSelect button clicked") }}/>
+                        wrapperStyle={{
+                          width: 200,
+                          margin: SPACING.M
+                        }}
+                        onClick={() => {
+                          console.log("DateSelect button clicked")
+                        }}/>
     </div>
-  </div>
-);
+  </div>);
+};
 
 export const DatePickerDemo = Template.bind({});
 

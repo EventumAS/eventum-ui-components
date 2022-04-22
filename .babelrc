@@ -1,6 +1,6 @@
 {
   "presets": [
-    "./src/babel/preset"
+    "next/babel"
   ],
   "plugins": [
     "@babel/plugin-transform-arrow-functions",
