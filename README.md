@@ -6,9 +6,9 @@
 
 ```sh
 yarn
-yarn dev
+yarn storybook
 ```
-Go to: http://localhost:3000
+Go to: http://localhost:6006
 
 
 ## Use as npm package

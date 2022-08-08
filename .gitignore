@@ -11,3 +11,4 @@ pom.xml.asc
 src-cljs/eventum-ui-components
 target
 test/node_modules
+storybook-static
