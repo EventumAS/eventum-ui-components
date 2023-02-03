@@ -14,7 +14,6 @@ const i18n = {
     account: 'Kontoinstillinger',
     accounts: 'Kontoer',
     admin: 'Admin',
-    becomeHost: 'Bli en utleier',
     favorites: 'Favoritter',
     host: 'Utleier',
     inbox: 'Meldinger',
@@ -33,7 +32,6 @@ const i18n = {
     account: 'Account settings',
     accounts: 'Accounts',
     admin: 'Admin',
-    becomeHost: 'Become a host',
     favorites: 'Favorites',
     help: 'Help',
     host: 'Host',
@@ -57,10 +55,6 @@ const URI = {
   adminTransferVenues: '/hosting/venue-transfer',
   adminStats: '/inbox/admin/stats',
   adminUsers: '/inbox/admin/users',
-  becomeHost: {
-    en: '/list-your-space',
-    nb: '/leie-ut-lokale',
-  },
   favorites: {
     en: '/favorites',
     nb: '/favoritter',
@@ -279,9 +273,6 @@ function WebMenuMobile({ isAdmin, isHost, isLoggedIn, locale, onClick }: {
 
   return (
     <React.Fragment>
-      {isHost ?
-        null
-        : <ModalMenuLink href={URI.becomeHost[locale]} onClick={onClick}>{text.becomeHost}</ModalMenuLink>}
       <ModalMenuLink href={URI.favorites[locale]} onClick={onClick}>{text.favorites}</ModalMenuLink>
       {isLoggedIn ? <ModalMenuLink href={URI.inbox} onClick={onClick}>{text.inbox}</ModalMenuLink> : null}
       {!isLoggedIn ? <ModalMenuLink href={URI.login} onClick={onLoginClick}>{text.login}</ModalMenuLink> : null}
@@ -310,9 +301,7 @@ export function HeaderWebMenu({
       </div>
 
       <div className="desktop">
-        {isHost ?
-          <HostMenu locale={locale} />
-          : <HeaderLink href={URI.becomeHost[locale]}>{text.becomeHost}</HeaderLink>}
+        {isHost ? <HostMenu locale={locale} /> : null}
         <HeaderLink href={URI.favorites[locale]}>{text.favorites}</HeaderLink>
         {isLoggedIn ? <HeaderLink href={URI.inbox}>{text.inbox}</HeaderLink> : null}
         {isAdmin ? <AdminMenu locale={locale} /> : null}
