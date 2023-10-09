@@ -25,8 +25,10 @@ const i18n = {
     selectAccount: 'Velg konto',
     selectedAccount: 'Du administrerer:',
     stats: 'Statistikkpanel',
+    dashboard: 'Dashbord',
     users: 'Brukere',
     venues: 'Utleiesteder',
+    budgets: 'Budsjetter',
   },
   en: {
     account: 'Account settings',
@@ -44,8 +46,10 @@ const i18n = {
     selectAccount: 'Choose account',
     selectedAccount: 'You manage:',
     stats: 'Stats dashboard',
+    dashboard: 'Dashboard',
     users: 'User profiles',
     venues: 'Venues',
+    budgets: 'Budgets',
   },
 };
 
@@ -53,7 +57,9 @@ const URI = {
   accounts: '/hosting/accounts',
   adminPerformInvoicing: '/hosting/accounting/invoicing',
   adminTransferVenues: '/hosting/venue-transfer',
+  adminBudgets: '/hosting/accounting/monthly-budgets',
   adminStats: '/inbox/admin/stats',
+  adminDashboard: '/hosting/accounting/dashboard',
   adminUsers: '/inbox/admin/users',
   favorites: {
     en: '/favorites',
@@ -87,6 +93,8 @@ function AdminMenuLinks({ locale, onClick }: { locale: string, onClick?: () => v
       <ModalMenuLink href={URI.adminPerformInvoicing} onClick={onClick}>{text.performInvoicing}</ModalMenuLink>
       <ModalMenuLink href={URI.adminTransferVenues} onClick={onClick}>{text. adminTransferVenues}</ModalMenuLink>
       <ModalMenuLink href={URI.adminStats} onClick={onClick}>{text.stats}</ModalMenuLink>
+      <ModalMenuLink href={URI.adminDashboard} onClick={onClick}>{text.dashboard}</ModalMenuLink>
+      <ModalMenuLink href={URI.adminBudgets} onClick={onClick}>{text.budgets}</ModalMenuLink>
     </React.Fragment>
   )
 }

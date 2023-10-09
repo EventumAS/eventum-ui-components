@@ -1,4 +1,4 @@
-(defproject eventum/ui-components "4.6.7"
+(defproject eventum/ui-components "4.6.8"
   :source-paths ["src-cljs"]
   :dependencies [[reagent "0.8.1" :scope "provided"]]
   :repositories {"github" {:url "https://maven.pkg.github.com/EventumAS/eventum-ui-components"
