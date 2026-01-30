@@ -14,7 +14,6 @@ const i18n = {
     account: 'Kontoinstillinger',
     accounts: 'Kontoer',
     admin: 'Admin',
-    favorites: 'Favoritter',
     host: 'Utleier',
     inbox: 'Meldinger',
     performInvoicing: 'Fakturering',
@@ -34,7 +33,6 @@ const i18n = {
     account: 'Account settings',
     accounts: 'Accounts',
     admin: 'Admin',
-    favorites: 'Favorites',
     help: 'Help',
     host: 'Host',
     inbox: 'Messages',
@@ -61,10 +59,6 @@ const URI = {
   adminStats: '/inbox/admin/stats',
   adminDashboard: '/hosting/accounting/dashboard',
   adminUsers: '/inbox/admin/users',
-  favorites: {
-    en: '/favorites',
-    nb: '/favoritter',
-  },
   help: 'https://eventum.zendesk.com',
   hostVenues: '/hosting/venues',
   inbox: '/inbox/',
@@ -281,7 +275,6 @@ function WebMenuMobile({ isAdmin, isHost, isLoggedIn, locale, onClick }: {
 
   return (
     <React.Fragment>
-      <ModalMenuLink href={URI.favorites[locale]} onClick={onClick}>{text.favorites}</ModalMenuLink>
       {isLoggedIn ? <ModalMenuLink href={URI.inbox} onClick={onClick}>{text.inbox}</ModalMenuLink> : null}
       {!isLoggedIn ? <ModalMenuLink href={URI.login} onClick={onLoginClick}>{text.login}</ModalMenuLink> : null}
       {isAdmin ? <AdminMenuLinks locale={locale} onClick={onClick} /> : null}
@@ -310,7 +303,6 @@ export function HeaderWebMenu({
 
       <div className="desktop">
         {isHost ? <HostMenu locale={locale} /> : null}
-        <HeaderLink href={URI.favorites[locale]}>{text.favorites}</HeaderLink>
         {isLoggedIn ? <HeaderLink href={URI.inbox}>{text.inbox}</HeaderLink> : null}
         {isAdmin ? <AdminMenu locale={locale} /> : null}
         {!isLoggedIn ? <HeaderLink href={URI.login} onClick={onLoginClick}>{text.login}</HeaderLink> : null}
